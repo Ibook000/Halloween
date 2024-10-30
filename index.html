@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- 声明文档类型为HTML5 -->
+
+<html lang="en">
+<!-- 开始HTML文档，设置语言为英语 -->
+
+<head>
+<!-- 开始头部区域，包含元数据和其他资源链接 -->
+	<meta charset="UTF-8;intial-scale : 0.9">
+	<!-- 设置字符编码为UTF-8，并尝试设置初始缩放比例为0.9（注意这里有一个拼写错误：应该是`initial-scale`） -->
+	<title>Halloween</title>
+	<!-- 设置页面标题为“Halloween” -->
+	<link href="https://fonts.googleapis.com/css2?family=Fruktur&display=swap" rel="stylesheet">
+	<!-- 引入Google Fonts中的Fruktur字体 -->
+	<link href="styles.css" rel="stylesheet">
+	<!-- 引入自定义的CSS样式表 -->
+	<link rel="icon" href="images/wolf.png">
+	<!-- 设置页面的favicon图标，使用images文件夹中的wolf.png图片 -->
+</head>
+
+<body>
+<!-- 开始主体区域，包含页面的主要内容 -->
+	<section>
+	<!-- 创建一个section元素，用于包含背景和其他图像 -->
+		<img src="images/bg.jpg" alt="background" id="bg"/>
+		<!-- 背景图片，使用images文件夹中的bg.jpg图片 -->
+		<img src="images/bats.png" alt="bats" id="bats">
+		<!-- 蝙蝠群图片，使用images文件夹中的bats.png图片 -->
+		<img src="images/castle.png" alt="castle" id="castle">
+		<!-- 城堡图片，使用images文件夹中的castle.png图片 -->
+		<img src="images/img.png" alt="witch" id="witch">
+		<!-- 巫婆图片，使用images文件夹中的img.png图片 -->
+		<img src="images/wolf.png" alt="wolf" id="wolf">
+		<!-- 狼图片，使用images文件夹中的wolf.png图片 -->
+	</section>
+
+	<div class="sec">
+	<!-- 创建一个div元素，类名为sec，用于包含内容 -->
+		<div class="content">
+		<!-- 创建一个div元素，类名为content，用于包含具体的内容 -->
+			<h2>Happy Halloween</h2>
+			<!-- 标题，显示“Happy Halloween” -->
+		</div>
+	</div>
+	<audio id="BackgroundMusic">
+        <source src="Halloween.mp3" type="audio/mpeg">
+    </audio>
+	<audio id="ScreamMusic">
+        <source src="scream.mp3" type="audio/mpeg">
+    </audio>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+	<!-- 引入GSAP库的minified版本，用于动画效果 -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/ScrollTrigger.min.js"></script>
+	<!-- 引入GSAP的ScrollTrigger插件，用于基于滚动的动画效果 -->
+	<script src="script.js"></script>
+	<!-- 引入自定义的JavaScript文件 -->
+</body>
+
+</html>
+<!-- 结束HTML文档 -->
