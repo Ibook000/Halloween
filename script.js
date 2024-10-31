@@ -8,37 +8,65 @@ document.addEventListener('mousemove', function(e) {
     mouseX = e.clientX;
     mouseY = e.clientY;
 });
-
 // 在鼠标位置显示血迹图片
 function showBloodAtMousePosition() {
     const Blood = document.createElement('img');
     Blood.src = 'images/blood.png';
     Blood.style.position = 'absolute';
-    Blood.style.left = `${mouseX}px`;
-    Blood.style.top = `${mouseY}px`;
-	const randomAngle = 100 + Math.random() * 220;
+    const randomAngle = 150 + Math.random() * 220;
+    Blood.style.left = `${mouseX-randomAngle/2}px`;
+    Blood.style.top = `${mouseY-randomAngle/2}px`;
     Blood.style.width = randomAngle+'px'; // 调整图片大小
     Blood.style.height = randomAngle+'px'; // 调整图片大小
     document.body.appendChild(Blood);
 
     // 使用 GSAP 动画显示血迹图片
     gsap.fromTo(Blood, 
-    { opacity: 0, 
-      scale: 0 
+    { opacity: 0, //透明度
+
+      scale: 0 //初始缩放比例
     }, { duration: 1, 
          opacity: 1, 
          scale: 1, 
-         ease: 'elastic.out(1, 0.3)' 
+         ease: 'elastic.out(2, 0.3)' //弹性缓动
     });
 
-    // 可选：设置一段时间后移除血迹图片
+    // 设置一段时间后移除血迹图片
     setTimeout(() => {
         document.body.removeChild(Blood);
     }, 3000); // 3秒后移除
 }
+function showHalloweenText() {
+    const HalloweenText = document.createElement('img');
+    
+    HalloweenText.src = 'images/halloween_text.png';
+    HalloweenText.style.position = 'absolute';
+    HalloweenText.style.left = `${window.innerWidth/2-200}px`; // 使用 window.innerWidth 获取视口宽度
+    HalloweenText.style.top = `${window.innerHeight/2-200}px`; // 使用 window.innerHeight 获取视口高度
+    HalloweenText.style.width =  '400px'; // 调整图片大小
+    document.body.appendChild(HalloweenText);
+    console.log('showHalloweenText')
+    gsap.fromTo(HalloweenText, 
+    { 
+        delay: 5,
+        opacity: 0, // 初始透明度
+        scale: 0 // 初始缩放比例
+    }, { 
+        
+        duration: 1, 
+        opacity: 1, 
+        scale: 1, 
+        ease: 'bounce.inout(2, 0.3)' // 弹性缓动
+        
+    });
 
+    setTimeout(() => {
+        document.body.removeChild(HalloweenText);
+    }, 3000);
+}
 // 页面加载完成后尝试播放音频
 document.addEventListener('DOMContentLoaded', function() {
+    showHalloweenText()
     BackgroundMusic.play().catch(function(error) {
         console.error('Audio playback failed:', error);
     });
@@ -129,7 +157,7 @@ for (let i = 0; i < numBats; i++) {
         y: randomY,
         opacity: 0, // 最终透明度为 1
         duration: 1 + Math.random() * 2, // 动画持续时间为 2 到 4 秒
-        ease: "power1.inOut", // 使用 power1.inOut 缓动效果
+        ease: "power2.inOut", // 使用 power1.inOut 缓动效果
         delay: i * 0.01 // 每个蝙蝠的延迟时间不同，以错开动画
     });
 	setTimeout(() => {
